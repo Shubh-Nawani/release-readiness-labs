@@ -2,3 +2,7 @@ approvedBy: null
 reviewDate: null
 releaseManager: null
 status: pending-production-approval
+environment: production
+required_reviewer: Shubh-Nawani
+allowed_branch: main
+note: Fork-owner review is for the lab; production requires an independent reviewer.

@@ -3,6 +3,7 @@ on:
   pull_request:
   push:
     branches: [main]
+  workflow_dispatch:
 
 permissions:
   contents: read
@@ -34,3 +35,12 @@ jobs:
       - name: Clean up the lab container
         if: always()
         run: docker rm -f orderflow-ca3 || true
+
+  production-readiness:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: [validate, deploy-local-lab]
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Record approved release candidate (no production deployment)
+        run: echo "OrderFlow 2.3.0 candidate $GITHUB_SHA passed validation and environment review."

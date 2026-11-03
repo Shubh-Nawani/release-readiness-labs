@@ -1,3 +1,8 @@
 environment: local-lab
 image_tag: "2.3.0"
+ci_image: "orderflow:<full-commit-sha>"
+production_environment: production
+production_branch: main
+production_infrastructure: existing-kubernetes-cluster
+production_image_policy: validated-registry-digest
 secrets: {}

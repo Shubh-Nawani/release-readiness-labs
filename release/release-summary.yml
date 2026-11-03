@@ -1,5 +1,5 @@
-status: unknown
-environment: production
-version: latest
-approval: pending
-rollback: none
+status: local-validation-passed
+environment: local-lab
+version: "2.3.0"
+approval: production-pending
+rollback: explicit-previous-image

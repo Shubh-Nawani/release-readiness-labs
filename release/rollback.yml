@@ -1,2 +1,7 @@
-rollback_strategy: 
-target_version: 
+rollback_strategy: redeploy-previous-validated-local-image
+target_version: "1.0.0"
+target_image: orderflow:1.0.0
+triggers: [failed-health-check, wrong-release-version, increased-error-rate]
+command: bash scripts/rollback.sh orderflow:1.0.0 1.0.0
+verification: GET /health must report status ok and version 1.0.0
+scope: local-lab-only

@@ -14,11 +14,6 @@ spec:
     spec:
       containers:
       - name: lab-app
-        image: lab-app:production-build
+        image: orderflow:2.3.0
         ports:
         - containerPort: 3000
-        env:
-        - name: API_KEY
-          value: "test-api-key-1234"
-        - name: DATABASE_PASSWORD
-          value: "password123"
